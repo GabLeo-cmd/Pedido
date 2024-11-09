@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><3</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Fundo rosa na tela inteira */
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            position: relative;
+            transition: background 0.5s ease; /* Transição suave para a mudança de fundo */
+        }
+        .modal {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%; /* Ajuste para dispositivos móveis */
+            max-width: 500px; /* Limite máximo de largura */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 2em; /* Ajuste para dispositivos móveis */
+            color: #ff6584;
+        }
+        p {
+            font-size: 1em; /* Ajuste para dispositivos móveis */
+            margin: 20px 0;
+            color: #ff6584;
+        }
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin: 10px 0; /* Ajuste para dispositivos móveis */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        .yes-btn {
+            background-color: #ff6584;
+            color: white;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .black-text h1, .black-text p {
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 1.2em; /* Tamanho uniforme para todo o texto */
+        }
+        .neon-heart {
+            font-size: 3em;
+            margin-top: 20px;
+            color: #ff6584;
+            animation: neon 1.5s ease-in-out infinite alternate, heartAnimation 2s ease-in-out infinite;
+        }
+
+        /* Animação da neon */
+        @keyframes neon {
+            0% {
+                text-shadow: 0 0 5px #ff6584, 0 0 10px #ff6584, 0 0 15px #ff6584, 0 0 20px #ff6584, 0 0 25px #ff6584;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff6584, 0 0 15px #ff6584, 0 0 20px #ff6584, 0 0 25px #ff6584, 0 0 30px #ff6584;
+            }
+        }
+
+        /* Estilos para os botões aleatórios */
+        .random-btn {
+            position: absolute;
+            font-size: 0.8em; /* Tamanho menor para dispositivos móveis */
+            padding: 5px 10px; /* Tamanho menor para dispositivos móveis */
+            background-color: white;
+            color: #ff6584;
+            border: 2px solid #ff6584;
+            border-radius: 5px;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Estilos para a animação de fogos */
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff6584;
+            box-shadow: 0 0 10px 5px #ff6584, 0 0 20px 10px #ff6584;
+            animation: firework 1s ease-out;
+        }
+
+        @keyframes firework {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        .message {
+            font-size: 2em;
+            color: #ff6584;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 0 0 10px #ff6584, 0 0 20px #ff6584;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+
+        .black-background {
+            background-color: black !important;
+        }
+
+        .noModal {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <h1>Tenho que lhe fazer um pedido sério</h1>
+        <p>Mas antes de você negar...</p>
+        <button class="yes-btn" onclick="nextStep()">Próximo</button>
+    </div>
+
+    <script>
+        let currentButton = null; // Para controlar o botão exibido atualmente
+
+        function nextStep() {
+            document.querySelector(".modal").innerHTML = `
+                <h1>Eu sou péssimo com palavras quando é para falar de sentimentos</h1>
+                <p>Então vou tentar me expressar da forma nerdola que conheço...</p>
+                <img src="raf,360x360,075,t,fafafa_ca443f4786.u1.jpg" alt="Imagem nerdola">
+                <button class="yes-btn" onclick="showDeclaration()">Próximo</button>
+            `;
+        }
+
+        function showDeclaration() {
+            document.querySelector(".modal").innerHTML = `
+                <h1>Saiba que você é uma pessoa que chegou na minha vida como um relâmpago...</h1>
+                <p>Porém mudou tudo e agora você é uma pessoa capaz de mudar meu dia somente com um olhar, um sorriso, um beijo.</p>
+                <img src="WhatsApp Image 2024-11-09 at 10.50.05_084178ad.jpg" alt="Imagem especial">
+                <button class="yes-btn" onclick="finalStep()">Próximo</button>
+            `;
+        }
+
+        function finalStep() {
+            document.querySelector(".modal").innerHTML = `
+                <h1>Você agora é uma pessoa insubstituível para mim</h1>
+                <p>E que vejo como porto seguro meu, onde posso buscar apoio e quero me tornar alguém da mesma forma para ti.</p>
+                <div class="neon-heart">❤️</div>
+                <button class="yes-btn" onclick="askQuestion()">Próximo</button>
+            `;
+        }
+
+        function askQuestion() {
+            document.querySelector(".modal").innerHTML = `
+                <h1>Você me daria uma chance de cuidar de você e lhe fazer uma mulher muito feliz? <3</h1>
+                <button class="yes-btn" onclick="acceptAnswer()">Aceita?</button>
+            `;
+        }
+
+        function acceptAnswer() {
+            // Remove o modal branco quando aparecer o botão aleatório
+            document.querySelector(".modal").style.display = 'none';
+
+            // Adiciona o botão "Certeza?" em uma posição aleatória
+            currentButton = createRandomButton("Certeza?", nextStepAfterCerteza);
+        }
+
+        function nextStepAfterCerteza() {
+            // Remove o botão anterior
+            currentButton.remove();
+
+            // Adiciona o botão "Absoluta?" em outra posição aleatória
+            currentButton = createRandomButton("Absoluta?", nextStepAfterAbsoluta);
+        }
+
+        function nextStepAfterAbsoluta() {
+            // Remove o botão anterior
+            currentButton.remove();
+
+            // Adiciona o botão "Não tem volta depois hein" em outra posição aleatória
+            currentButton = createRandomButton("Não tem volta depois hein", finishProcess);
+        }
+
+        function finishProcess() {
+            // Remove o botão "Não tem volta depois hein"
+            currentButton.remove();
+
+            // Muda o fundo para preto
+            document.body.style.background = 'black';
+            // Remover o quadrado branco
+            document.querySelector(".modal").classList.add("noModal");
+
+            // Exibir a mensagem final
+            let messageDiv = document.createElement("div");
+            messageDiv.classList.add("message");
+            messageDiv.innerHTML = "Eu te amo!";
+            document.body.appendChild(messageDiv);
+
+            // Iniciar a exibição infinita de fogos de artifício
+            setInterval(createFireworks, 500);
+        }
+
+        // Função para criar a animação de fogos
+        function createFireworks() {
+            const numberOfFireworks = 5; // Número de fogos de artifício a serem criados de cada vez
+            for (let i = 0; i < numberOfFireworks; i++) {
+                createFirework();
+            }
+        }
+
+        function createFirework() {
+            const firework = document.createElement("div");
+            firework.classList.add("firework");
+
+            // Define uma cor aleatória para o fogo de artifício
+            const colors = ['#ff6584', '#ff9a9e', '#fad0c4', '#ffcc00', '#00ccff', '#cc00ff'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            firework.style.background = randomColor;
+            firework.style.boxShadow = `0 0 10px 5px ${randomColor}, 0 0 20px 10px ${randomColor}`;
+
+            // Define uma posição aleatória para o fogo de artifício
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+            firework.style.left = `${randomX}px`;
+            firework.style.top = `${randomY}px`;
+
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove(); // Remove o fogo de artifício após a animação
+            }, 1000);
+        }
+
+        // Função para criar um botão aleatório
+        function createRandomButton(text, onClick) {
+            const button = document.createElement("button");
+            button.classList.add("random-btn");
+            button.innerHTML = text;
+
+            // Define a posição aleatória
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+
+            // Define o evento de clique
+            button.onclick = onClick;
+
+            document.body.appendChild(button);
+            return button;
+        }
+    </script>
+</body>
+</html>
